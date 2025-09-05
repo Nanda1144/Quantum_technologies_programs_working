@@ -65,7 +65,7 @@ warnings.filterwarnings('ignore')
 print("All package are imported into the program")
 
 #https://chat.z.ai/s/ef27c239-3d82-4045-85ec-afa7611cf6fc
-
+#https://colab.research.google.com/drive/1zbdHJjGSUL5Eff59HgQsQbdLo8n9Q219
 
 
 # IBM Quantum Setup
