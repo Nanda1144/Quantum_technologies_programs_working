@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriQuantum - Agriculture & Quantum Technology</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-seedling"></i>
+                <span>AgriQuantum</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#crops" class="nav-link">Crop Database</a></li>
+                <li><a href="#disease-detection" class="nav-link">Disease Detection</a></li>
+                <li><a href="#farm-planner" class="nav-link">Farm Planner</a></li>
+                <li><a href="#market" class="nav-link">Market Prices</a></li>
+                <li><a href="#soil-calculator" class="nav-link">Soil Calculator</a></li>
+                <li><a href="#insights" class="nav-link">Quantum Insights</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Revolutionizing Agriculture with Quantum Technology</h1>
+                <p>Advanced solutions for modern farming through quantum computing and AI</p>
+                <div class="hero-buttons">
+                    <a href="#dashboard" class="btn btn-primary">Explore Dashboard</a>
+                    <a href="#crops" class="btn btn-secondary">Crop Database</a>
+                </div>
+            </div>
+            <div class="quantum-particles" id="particles"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quantum Agriculture Features</h2>
+                <p>Advanced tools powered by quantum computing for modern farming</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Quantum Soil Analysis</h3>
+                    <p>Real-time soil nutrient analysis using quantum sensors for precise farming decisions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Weather Prediction</h3>
+                    <p>Hyper-local weather forecasts with quantum computing models for accurate predictions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Crop Management</h3>
+                    <p>AI-powered crop monitoring and disease detection using quantum algorithms.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Resource Optimization</h3>
+                    <p>Quantum-based water and fertilizer optimization for sustainable farming.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <h3>Disease Detection</h3>
+                    <p>Early detection of crop diseases using quantum-powered image recognition.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Market Predictions</h3>
+                    <p>Quantum algorithms predict market trends to optimize selling strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <h2>Agriculture Dashboard</h2>
+                <p>Real-time insights for your farm using quantum technology</p>
+            </div>
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="soil">Soil Analysis</button>
+                <button class="tab-btn" data-tab="weather">Weather</button>
+                <button class="tab-btn" data-tab="crops">Crop Health</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="tab-panel active" id="soil">
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h3>Nitrogen</h3>
+                            <div class="stat-value">120 <span>ppm</span></div>
+                            <div class="stat-bar">
+                                <div class="stat-progress" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Phosphorus</h3>
+                            <div class="stat-value">65 <span>ppm</span></div>
+                            <div class="stat-bar">
+                                <div class="stat-progress" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Potassium</h3>
+                            <div class="stat-value">140 <span>ppm</span></div>
+                            <div class="stat-bar">
+                                <div class="stat-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>pH Level</h3>
+                            <div class="stat-value">6.8</div>
+                            <div class="stat-bar">
+                                <div class="stat-progress" style="width: 68%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="soilChart"></canvas>
+                    </div>
+                </div>
+                <div class="tab-panel" id="weather">
+                    <div class="weather-forecast">
+                        <div class="weather-card">
+                            <div class="weather-day">Today</div>
+                            <div class="weather-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="weather-temp">24°C</div>
+                            <div class="weather-desc">Sunny</div>
+                        </div>
+                        <div class="weather-card">
+                            <div class="weather-day">Tomorrow</div>
+                            <div class="weather-icon">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <div class="weather-temp">22°C</div>
+                            <div class="weather-desc">Partly Cloudy</div>
+                        </div>
+                        <div class="weather-card">
+                            <div class="weather-day">Wed</div>
+                            <div class="weather-icon">
+                                <i class="fas fa-cloud-rain"></i>
+                            </div>
+                            <div class="weather-temp">19°C</div>
+                            <div class="weather-desc">Rainy</div>
+                        </div>
+                        <div class="weather-card">
+                            <div class="weather-day">Thu</div>
+                            <div class="weather-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="weather-temp">20°C</div>
+                            <div class="weather-desc">Cloudy</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="weatherChart"></canvas>
+                    </div>
+                </div>
+                <div class="tab-panel" id="crops">
+                    <div class="crop-health">
+                        <div class="crop-card">
+                            <div class="crop-icon">
+                                <i class="fas fa-wheat-awn"></i>
+                            </div>
+                            <div class="crop-name">Wheat</div>
+                            <div class="crop-health-value">85%</div>
+                            <div class="crop-health-bar">
+                                <div class="crop-health-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="crop-card">
+                            <div class="crop-icon">
+                                <i class="fas fa-corn"></i>
+                            </div>
+                            <div class="crop-name">Corn</div>
+                            <div class="crop-health-value">92%</div>
+                            <div class="crop-health-bar">
+                                <div class="crop-health-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="crop-card">
+                            <div class="crop-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="crop-name">Soybean</div>
+                            <div class="crop-health-value">78%</div>
+                            <div class="crop-health-bar">
+                                <div class="crop-health-progress" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="cropChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crop Database Section -->
+    <section id="crops" class="crops">
+        <div class="container">
+            <div class="section-header">
+                <h2>Crop Database</h2>
+                <p>Comprehensive information about crops, soil requirements, and chemical treatments</p>
+            </div>
+            
+            <div class="crop-filter">
+                <div class="filter-group">
+                    <label for="crop-filter">Filter by Crop:</label>
+                    <select id="crop-filter">
+                        <option value="all">All Crops</option>
+                        <option value="wheat">Wheat</option>
+                        <option value="corn">Corn</option>
+                        <option value="rice">Rice</option>
+                        <option value="soybean">Soybean</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="potato">Potato</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="soil-filter">Filter by Soil Type:</label>
+                    <select id="soil-filter">
+                        <option value="all">All Soil Types</option>
+                        <option value="clay">Clay</option>
+                        <option value="loamy">Loamy</option>
+                        <option value="sandy">Sandy</option>
+                        <option value="silty">Silty</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="crops-grid" id="crops-grid">
+                <!-- Crop cards will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Crop Disease Detection Section -->
+    <section id="disease-detection" class="disease-detection">
+        <div class="container">
+            <div class="section-header">
+                <h2>Crop Disease Detection</h2>
+                <p>Upload crop images to detect diseases using quantum-powered AI</p>
+            </div>
+            
+            <div class="detection-container">
+                <div class="upload-area">
+                    <div class="upload-box" id="upload-box">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Upload Crop Image</h3>
+                        <p>Drag & drop your image here or click to browse</p>
+                        <input type="file" id="file-input" accept="image/*">
+                        <button class="btn btn-primary" id="upload-btn">Choose Image</button>
+                    </div>
+                    
+                    <div class="image-preview" id="image-preview" style="display: none;">
+                        <img id="preview-img" src="" alt="Crop preview">
+                        <button class="btn btn-secondary" id="analyze-btn">Analyze Image</button>
+                    </div>
+                </div>
+                
+                <div class="detection-result" id="detection-result" style="display: none;">
+                    <h3>Detection Results</h3>
+                    <div class="result-card">
+                        <div class="result-header">
+                            <div class="disease-name" id="disease-name">-</div>
+                            <div class="confidence" id="confidence">-</div>
+                        </div>
+                        <div class="result-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Severity:</span>
+                                <span class="detail-value" id="severity">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Treatment:</span>
+                                <span class="detail-value" id="treatment">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Quantum Insights:</span>
+                                <span class="detail-value" id="quantum-insights">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="new-analysis-btn">New Analysis</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farm Management Planner Section -->
+    <section id="farm-planner" class="farm-planner">
+        <div class="container">
+            <div class="section-header">
+                <h2>Farm Management Planner</h2>
+                <p>Plan your farming activities with quantum-powered optimization</p>
+            </div>
+            
+            <div class="planner-container">
+                <div class="planner-form">
+                    <h3>Farm Details</h3>
+                    <form id="farm-form">
+                        <div class="form-group">
+                            <label for="farm-size">Farm Size (acres)</label>
+                            <input type="number" id="farm-size" min="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="crop-type">Primary Crop</label>
+                            <select id="crop-type" required>
+                                <option value="">Select Crop</option>
+                                <option value="wheat">Wheat</option>
+                                <option value="corn">Corn</option>
+                                <option value="rice">Rice</option>
+                                <option value="soybean">Soybean</option>
+                                <option value="tomato">Tomato</option>
+                                <option value="potato">Potato</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="soil-type">Soil Type</label>
+                            <select id="soil-type" required>
+                                <option value="">Select Soil Type</option>
+                                <option value="clay">Clay</option>
+                                <option value="loamy">Loamy</option>
+                                <option value="sandy">Sandy</option>
+                                <option value="silty">Silty</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="water-source">Water Source</label>
+                            <select id="water-source" required>
+                                <option value="">Select Water Source</option>
+                                <option value="rainfed">Rainfed</option>
+                                <option value="irrigation">Irrigation</option>
+                                <option value="mixed">Mixed</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="planting-date">Planting Date</label>
+                            <input type="date" id="planting-date" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Generate Plan</button>
+                    </form>
+                </div>
+                
+                <div class="planner-result" id="planner-result" style="display: none;">
+                    <h3>Farm Management Plan</h3>
+                    <div class="plan-summary">
+                        <div class="summary-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div class="summary-title">Harvest Date</div>
+                            <div class="summary-value" id="harvest-date">-</div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-seedling"></i>
+                            <div class="summary-title">Expected Yield</div>
+                            <div class="summary-value" id="expected-yield">-</div>
+                        </div>
+                        <div class="summary-card">
+                            <i class="fas fa-tint"></i>
+                            <div class="summary-title">Water Requirement</div>
+                            <div class="summary-value" id="water-requirement">-</div>
+                        </div>
+                 
+                    <div class="plan-timeline">
+                        <h4>Activity Timeline</h4>
+                        <div class="timeline" id="timeline">
+                            <!-- Timeline items will be dynamically generated -->
+                        </div>
+                    </div>
+                    
+                    <div class="plan-recommendations">
+                        <h4>Quantum Recommendations</h4>
+                        <ul class="recommendations-list" id="recommendations-list">
+                            <!-- Recommendations will be dynamically generated -->
+                        </ul>
+                    </div>
+                    
+                    <button class="btn btn-secondary" id="new-plan-btn">Create New Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Price Predictor Section -->
+    <section id="market" class="market">
+        <div class="container">
+            <div class="section-header">
+                <h2>Market Price Predictor</h2>
+                <p>Quantum-powered market predictions for agricultural commodities</p>
+            </div>
+            
+            <div class="market-container">
+                <div class="market-controls">
+                    <div class="control-group">
+                        <label for="crop-select">Select Crop:</label>
+                        <select id="crop-select">
+                            <option value="wheat">Wheat</option>
+                            <option value="corn">Corn</option>
+                            <option value="rice">Rice</option>
+                            <option value="soybean">Soybean</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="time-range">Time Range:</label>
+                        <select id="time-range">
+                            <option value="1m">1 Month</option>
+                            <option value="3m">3 Months</option>
+                            <option value="6m">6 Months</option>
+                            <option value="1y">1 Year</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="predict-btn">Predict Prices</button>
+                </div>
+                
+                <div class="market-chart">
+                    <canvas id="priceChart"></canvas>
+                </div>
+                
+                <div class="market-insights">
+                    <h3>Market Insights</h3>
+                    <div class="insight-cards">
+                        <div class="insight-card">
+                            <div class="insight-title">Current Price</div>
+                            <div class="insight-value" id="current-price">$250/ton</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-title">Predicted Price</div>
+                            <div class="insight-value" id="predicted-price">$275/ton</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-title">Price Change</div>
+                            <div class="insight-value positive" id="price-change">+10%</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-title">Confidence</div>
+                            <div class="insight-value" id="confidence-level">92%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-details">
+                        <h4>Quantum Analysis</h4>
+                        <p id="quantum-analysis">Based on quantum algorithms analyzing market trends, weather patterns, and global supply chain data, we predict a price increase in the next quarter due to reduced supply and increased demand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soil Health Calculator Section -->
+    <section id="soil-calculator" class="soil-calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2>Soil Health Calculator</h2>
+                <p>Calculate soil health index and get recommendations for improvement</p>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h3>Soil Test Results</h3>
+                    <form id="soil-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nitrogen">Nitrogen (ppm)</label>
+                                <input type="number" id="nitrogen" min="0" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phosphorus">Phosphorus (ppm)</label>
+                                <input type="number" id="phosphorus" min="0" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="potassium">Potassium (ppm)</label>
+                                <input type="number" id="potassium" min="0" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="ph">pH Level</label>
+                                <input type="number" id="ph" min="0" max="14" step="0.1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="organic-matter">Organic Matter (%)</label>
+                                <input type="number" id="organic-matter" min="0" max="100" step="0.1" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="soil-type">Soil Type</label>
+                                <select id="soil-type-calc" required>
+                                    <option value="">Select Soil Type</option>
+                                    <option value="clay">Clay</option>
+                                    <option value="loamy">Loamy</option>
+                                    <option value="sandy">Sandy</option>
+                                    <option value="silty">Silty</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Calculate Soil Health</button>
+                    </form>
+                </div>
+                
+                <div class="calculator-result" id="calculator-result" style="display: none;">
+                    <h3>Soil Health Analysis</h3>
+                    
+                    <div class="health-score">
+                        <div class="score-circle">
+                            <div class="score-value" id="health-score">75</div>
+                            <div class="score-label">Health Index</div>
+                        </div>
+                        <div class="score-description" id="score-description">Good</div>
+                    </div>
+                    
+                    <div class="nutrient-status">
+                        <h4>Nutrient Status</h4>
+                        <div class="nutrient-bars">
+                            <div class="nutrient-item">
+                                <div class="nutrient-name">Nitrogen</div>
+                                <div class="nutrient-bar">
+                                    <div class="nutrient-progress" id="nitrogen-bar" style="width: 60%"></div>
+                                </div>
+                                <div class="nutrient-status-text" id="nitrogen-status">Adequate</div>
+                            </div>
+                            <div class="nutrient-item">
+                                <div class="nutrient-name">Phosphorus</div>
+                                <div class="nutrient-bar">
+                                    <div class="nutrient-progress" id="phosphorus-bar" style="width: 45%"></div>
+                                </div>
+                                <div class="nutrient-status-text" id="phosphorus-status">Low</div>
+                            </div>
+                            <div class="nutrient-item">
+                                <div class="nutrient-name">Potassium</div>
+                                <div class="nutrient-bar">
+                                    <div class="nutrient-progress" id="potassium-bar" style="width: 70%"></div>
+                                </div>
+                                <div class="nutrient-status-text" id="potassium-status">Good</div>
+                            </div>
+                            <div class="nutrient-item">
+                                <div class="nutrient-name">pH Level</div>
+                                <div class="nutrient-bar">
+                                    <div class="nutrient-progress" id="ph-bar" style="width: 68%"></div>
+                                </div>
+                                <div class="nutrient-status-text" id="ph-status">Optimal</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h4>Recommendations</h4>
+                        <ul class="recommendations-list" id="soil-recommendations">
+                            <!-- Recommendations will be dynamically generated -->
+                        </ul>
+                    </div>
+                    
+                    <button class="btn btn-secondary" id="new-calculation-btn">New Calculation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quantum Insights Section -->
+    <section id="insights" class="insights">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quantum Insights</h2>
+                <p>Advanced analytics powered by quantum computing</p>
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Quantum Accuracy</h3>
+                    <div class="insight-value" data-target="94.7">0%</div>
+                    <p>Prediction accuracy using quantum algorithms</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Yield Increase</h3>
+                    <div class="insight-value" data-target="23.5">0%</div>
+                    <p>Average yield increase with quantum optimization</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Water Savings</h3>
+                    <div class="insight-value" data-target="37.2">0%</div>
+                    <p>Water reduction through quantum irrigation planning</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Crop Health</h3>
+                    <div class="insight-value" data-target="89.3">0%</div>
+                    <p>Improved crop health with early disease detection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch for more information about AgriQuantum</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>AgriQuantum Headquarters</h3>
+                    <p>123 Farm Tech Avenue<br>Agriculture Valley, AV 12345</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@agriquantum.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8am-6pm</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>AgriQuantum</span>
+                </div>
+                <p>&copy; 2023 AgriQuantum. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Resources</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Crop Detail Modal -->
+    <div id="crop-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="crop-detail-container">
+                <div class="crop-images">
+                    <div class="main-image">
+                        <img id="main-crop-image" src="" alt="Crop Image">
+                    </div>
+                    <div class="image-thumbnails" id="image-thumbnails">
+                        <!-- Thumbnails will be dynamically generated -->
+                    </div>
+                </div>
+                
+                <div class="crop-info">
+                    <h2 id="modal-crop-name">Crop Name</h2>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-clock"></i> Growth Duration</h3>
+                        <p id="crop-duration">Duration information</p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-mountain"></i> Soil Requirements</h3>
+                        <div id="crop-soil-types" class="soil-types">
+                            <!-- Soil types will be dynamically generated -->
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-flask"></i> Chemical Treatments</h3>
+                        <div class="chemicals-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chemical</th>
+                                        <th>Purpose</th>
+                                        <th>Application</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="chemicals-tbody">
+                                    <!-- Chemicals will be dynamically generated -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-lightbulb"></i> Quantum Insights</h3>
+                        <div id="quantum-insights" class="insights-list">
+                            <!-- Insights will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
