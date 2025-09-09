@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumAgri - Smart Farming Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .crop-card {
+            transition: transform 0.3s ease;
+        }
+        .crop-card:hover {
+            transform: translateY(-5px);
+        }
+        .bg-agriculture {
+            background-image: linear-gradient(rgba(0, 100, 0, 0.8), rgba(0, 80, 0, 0.9)), url('https://picsum.photos/seed/cropfield/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .chatbot-container {
+            height: 400px;
+            overflow-y: auto;
+        }
+        .weather-widget {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+    </style>
+</head>
+<body class="bg-green-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-agriculture text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-seedling text-2xl"></i>
+                    <h1 class="text-xl font-bold">QuantumAgri</h1>
+                </div>
+                <ul class="hidden md:flex space-x-6">
+                    <li><a href="#" class="hover:text-yellow-300 transition">Home</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Crop Info</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Market Prices</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Weather</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Quantum Insights</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition">Contact</a></li>
+                </ul>
+                <button id="menu-toggle" class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-800 pb-4">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="#" class="block hover:bg-green-700 p-2 rounded">Home</a></li>
+                <li><a href="#" class="block hover:bg-green-700 p-2 rounded">Crop Info</a></li>
+                <li><a href="#" class="block hover:bg-green-700 p-2 rounded">Market Prices</a></li>
+                <li><a href="#" class="block hover:bg-green-700 p-2 rounded">Weather</a></li>
+                <li><a href="#" class="block hover:bg-green-700 p-2 rounded">Quantum Insights</a></li>
+                <li><a href="#" class="block hover:bg-green-700 p-2 rounded">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="bg-green-100 rounded-lg p-8 mb-8 text-center">
+            <h2 class="text-3xl font-bold text-green-800 mb-4">Welcome to QuantumAgri</h2>
+            <p class="text-green-700 max-w-2xl mx-auto">
+                Empowering farmers with quantum technology for smarter decisions, higher yields, and sustainable farming practices.
+            </p>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <input type="text" placeholder="Search crops..." class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option>Select Soil Type</option>
+                            <option>Sandy</option>
+                            <option>Loamy</option>
+                            <option>Clay</option>
+                            <option>Silty</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option>Sort by Duration</option>
+                            <option>Shortest First</option>
+                            <option>Longest First</option>
+                            <option>Profitability</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Crop Cards Section -->
+        <section class="mb-8">
+            <h3 class="text-2xl font-semibold text-green-800 mb-6">Recommended Crops</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Crop Card 1 -->
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://picsum.photos/seed/wheat/400/250.jpg" alt="Wheat" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-green-800">Wheat</h4>
+                        <p class="text-gray-600"><span class="font-medium">Type:</span> Cereal Grain</p>
+                        <p class="text-gray-600"><span class="font-medium">Season:</span> Winter</p>
+                        <p class="text-gray-600"><span class="font-medium">Duration:</span> 120 days</p>
+                        <button class="expand-btn mt-3 text-blue-600 hover:text-blue-800 flex items-center">
+                            More Details <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        <div class="details hidden mt-3 pt-3 border-t border-gray-200">
+                            <p class="text-sm text-gray-700"><span class="font-medium">Fertilizers:</span> NPK 14-35-14</p>
+                            <p class="text-sm text-gray-700"><span class="font-medium">Soil Type:</span> Loamy, Clay</p>
+                            <p class="text-sm text-gray-700"><span class="font-medium">Yield Prediction:</span> High (Quantum Analysis)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crop Card 2 -->
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://picsum.photos/seed/rice/400/250.jpg" alt="Rice" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-green-800">Rice</h4>
+                        <p class="text-gray-600"><span class="font-medium">Type:</span> Cereal Grain</p>
+                        <p class="text-gray-600"><span class="font-medium">Season:</span> Monsoon</p>
+                        <p class="text-gray-600"><span class="font-medium">Duration:</span> 90-150 days</p>
+                        <button class="expand-btn mt-3 text-blue-600 hover:text-blue-800 flex items-center">
+                            More Details <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        <div class="details hidden mt-3 pt-3 border-t border-gray-200">
+                            <p class="text-sm text-gray-700"><span class="font-medium">Fertilizers:</span> Urea, Potash</p>
+                            <p class="text-sm text-gray-700"><span class="font-medium">Soil Type:</span> Silty, Clayey</p>
+                            <p class="text-sm text-gray-700"><span class="font-medium">Yield Prediction:</span> Medium-High</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crop Card 3 -->
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://picsum.photos/seed/cotton/400/250.jpg" alt="Cotton" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-green-800">Cotton</h4>
+                        <p class="text-gray-600"><span class="font-medium">Type:</span> Fiber Crop</p>
+                        <p class="text-gray-600"><span class="font-medium">Season:</span> Summer</p>
+                        <p class="text-gray-600"><span class="font-medium">Duration:</span> 180-210 days</p>
+                        <button class="expand-btn mt-3 text-blue-600 hover:text-blue-800 flex items-center">
+                            More Details <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        <div class="details hidden mt-3 pt-3 border-t border-gray-200">
+                            <p class="text-sm text-gray-700"><span class="font-medium">Fertilizers:</span> NPK 20-10-10</p>
+                            <p class="text-sm text-gray-700"><span class="font-medium">Soil Type:</span> Sandy Loam</p>
+                            <p class="text-sm text-gray-700"><span class="font-medium">Yield Prediction:</span> High (Quantum Analysis)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Tools Section -->
+        <section class="mb-8">
+            <h3 class="text-2xl font-semibold text-green-800 mb-6">Interactive Tools</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Chatbot Section -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="text-xl font-semibold text-green-800 mb-4">Quantum Farm Advisor</h4>
+                    <div class="chatbot-container bg-gray-50 rounded-lg p-4 mb-4">
+                        <div class="message bot-message mb-3">
+                            <div class="flex items-start">
+                                <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="bg-green-100 p-3 rounded-lg max-w-xs">
+                                    <p>Hello! I'm your Quantum Farm Advisor. How can I help you today?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message user-message mb-3 text-right">
+                            <div class="bg-blue-100 p-3 rounded-lg max-w-xs inline-block">
+                                <p>I want to know the best crop for my sandy soil.</p>
+                            </div>
+                        </div>
+                        <div class="message bot-message mb-3">
+                            <div class="flex items-start">
+                                <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="bg-green-100 p-3 rounded-lg max-w-xs">
+                                    <p>Based on quantum analysis of your soil conditions, I recommend growing Millet or Sorghum. These crops are highly adaptable to sandy soils and require less water.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <input type="text" placeholder="Ask your question..." class="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <button class="bg-green-600 text-white px-4 rounded-r-lg hover:bg-green-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Section -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="text-xl font-semibold text-green-800 mb-4">Market Trends & Predictions</h4>
+                    <canvas id="marketChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Widget -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h4 class="text-xl font-semibold text-green-800 mb-4">Weather Forecast</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="weather-widget text-white p-4 rounded-lg">
+                        <div class="text-center">
+                            <i class="fas fa-sun text-4xl mb-2"></i>
+                            <h5 class="font-semibold">Today</h5>
+                            <p class="text-2xl font-bold">28°C</p>
+                            <p class="text-sm">Sunny</p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg">
+                        <div class="text-center">
+                            <i class="fas fa-cloud-sun text-4xl mb-2 text-blue-600"></i>
+                            <h5 class="font-semibold">Tomorrow</h5>
+                            <p class="text-2xl font-bold">25°C</p>
+                            <p class="text-sm">Partly Cloudy</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <div class="text-center">
+                            <i class="fas fa-cloud-rain text-4xl mb-2 text-gray-600"></i>
+                            <h5 class="font-semibold">Day After</h5>
+                            <p class="text-2xl font-bold">22°C</p>
+                            <p class="text-sm">Rain Expected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+                <h4 class="text-xl font-semibold text-green-800 mb-4 text-center">Farmer Login</h4>
+                <form>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Password</label>
+                        <input type="password" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span class="text-gray-700">Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition">
+                        Login
+                    </button>
+                </form>
+                <div class="mt-4 text-center">
+                    <p class="text-gray-600">Don't have an account? <a href="#" class="text-green-600 hover:underline">Sign Up</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-300 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-green-300 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-300 transition">Services</a></li>
+                        <li><a href="#" class="hover:text-green-300 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Resources</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-300 transition">Farmer Guides</a></li>
+                        <li><a href="#" class="hover:text-green-300 transition">Market Reports</a></li>
+                        <li><a href="#" class="hover:text-green-300 transition">Weather Updates</a></li>
+                        <li><a href="#" class="hover:text-green-300 transition">Training Videos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Contact Us</h5>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 123 Farm Street, Agricultural City</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2"></i> +1 234 567 8900</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@quantumagri.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Follow Us</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-green-300 transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-green-300 transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-green-300 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-green-300 transition"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-green-700 mt-8 pt-4 text-center">
+                <p>&copy; 2023 QuantumAgri. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Expand/Collapse Crop Details
+        document.querySelectorAll('.expand-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const details = this.nextElementSibling;
+                details.classList.toggle('hidden');
+                const icon = this.querySelector('i');
+                if (details.classList.contains('hidden')) {
+                    icon.className = 'fas fa-chevron-down ml-1';
+                } else {
+
+icon.className = 'fas
+
+fa-chevron-up ml-1';
+
+}
+
+});
+
+});
+
+// Chart for Market Trends
+
+const ctx = document.getElementByl d('marketChart').getContext('2d');
+
+new Chart(ctx, {
+
+type: 'line',
+
+data: {
+
+labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+
+datasets: [{
+
+label: 'Wheat Price (USD)', data: [280, 295, 310, 305, 320,
+
+315],
+
+borderColor: '#10B981',
+
+backgroundColor: 'rgba(16, 185, 129, 0.1)',
+
+tension: 0.4,
+
+fill: true
+
+}, {
+
+label: 'Rice Price (USD)',
+
+data: [450, 460, 455, 470, 480,
+
+475],
+
+borderColor: '#3B82F6',
+
+backgroundColor: 'rgba(59,
+
+130, 246, 0.1)',
+
+tension: 0.4,
+
+fill: true
+
+}]
+
+},
+  options: {
+
+responsive: true,
+
+plugins: {
+
+title: {
+
+display: true,
+
+text: 'Crop Price Trends'
+
+}
+
+},
+
+scales: {
+
+y: {
+
+beginAtZero: false
+
+}
+
+}
+
+}
+
+});
+
+// Light/Dark Mode Toggle (simulated)
+
+const toggleButton = document.createElement('button');
+
+toggleButton.innerHTML = '<i class="fas fa-moon"></i>'; toggleButton.className = 'fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition';
+
+document.body.appendChild(toggleB utton);
+
+toggleButton.addEventListener('click',
+
+function() { document.body.classList.toggle('d ark-mode');
+
+const icon = this.querySelector('i'); if (document.body.clas sList.contains('dark-mode'))
+  {
+    icon.className = 'fas fa-sun';
+
+} else {
+
+icon.className = 'fas fa-moon';
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
